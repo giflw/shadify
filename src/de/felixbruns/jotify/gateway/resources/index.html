@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<title>Shadify 2.0, spotify web streaming!</title>
+		<style type="text/css" media="screen">
+			@import url('style.css');
+			@import url('ui-lightness/jquery-ui-1.8.11.custom.css');
+		</style>
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.tablesorter.min.js"></script>
+		<script type="text/javascript" src="jquery.dimensions.js"></script>
+		<script type="text/javascript" src="jquery.jqModal.js"></script>
+		<script type="text/javascript" src="jquery.jqDnR.js"></script>
+		<script type="text/javascript" src="jotify.js"></script>
+		<script type="text/javascript" src="cache.js"></script>
+		<script type="text/javascript" src="prettyPrint.js"></script>
+		<script type="text/javascript" src="jquery-ui-1.8.11.custom.min.js"></script>
+		<script type="text/javascript" src="shadify.js"></script>
+		
+		
+	</head>
+	<body>
+		<audio id="audio">
+			Your browser doesn't support HTML 5 audio!
+		</audio>
+		
+		<div id="container">
+		
+			<div id="header">
+				<div class="left">
+					<img src="images/icon.png" alt="icon" />
+					<img src="images/logo.png" alt="logo" />
+					<br />
+					<br />
+					<h4>Spotify Web Streaming service</h4>
+				</div>
+				<div id="info-panel" class="right">
+					<div class="left">
+						
+						<div id="playing-label"></div>
+						<canvas id="progress-bar" width="350" height="15"></canvas>
+						<div id="control-label">
+							<a id="control-stop" href="#"><img src="images/control_stop_blue.png" /></a>
+							<a id="control-pause" href="#"><img src="images/control_pause_blue.png" /></a>
+							<a id="control-play" href="#"><img src="images/control_play_blue.png" /></a>
+							<div style="float:left;">
+							<span style="float:left">Vol</span>
+							<div id="control-volume" style="width: 100px; float:left;"></div>
+							</div>
+						</div>
+					</div>
+					<img id="cover-label" class="right" src="images/cover.png" />
+					<br class="clear" />
+				</div>
+				<br class="clear" />
+			</div>
+			<div id="content">
+			
+				<div id="info-label" class="label left">
+					Please wait... <img src="images/load.gif" />
+				</div>
+				<div id="error-label" class="label left"></div>
+				<div id="success-label" class="label left"></div>
+				
+				<span id="play-on-server" class="right label" href="#" style="margin-left: 25px;">
+					<input id="play-on-server-checkbox" type="checkbox" name="play-on-server-checkbox" style="vertical-align: middle;" />
+					<label for="play-on-server-checkbox">Play on server</label>
+				</span>
+				<a id="playlists-window-show" class="right label" href="#">
+					Playlists
+				</a>
+				<br class="clear" />
+				<br />
+				<div id="login-panel">
+					<input type="text" id="username" />
+					<input type="password" id="password" />
+					<input type="submit" id="login" value="Login" />
+				</div>
+				<div id="main-panel">
+					<div id="search-panel">
+						<input type="text" id="query" />
+						<input type="submit" id="search" value="Search" />
+					</div>
+					<br />
+					<table id="search-table" cellpadding="2" cellspacing="2">
+						<thead>
+							<tr>
+								<th>Track</th>
+								<th>Artist</th>
+								<th>Time</th>
+								<th>Popularity</th>
+								<th>Album</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- Empty -->
+						</tbody>
+					</table>
+					<div id="browse-album">
+						<img id="album-cover" src="images/cover.png" style="width: 20%;" class="left" />
+						<div class="right" style="width: 79%;">
+							<h6 id="album-name">Artist &raquo; Album</h6>
+							<br />
+							<table id="album-table" cellpadding="2" cellspacing="2">
+								<thead>
+									<tr>
+										<th>&nbsp;</th>
+										<th>Track</th>
+										<th>Time</th>
+										<th>Popularity</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+						<br class="clear"; />
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				Copyright &copy 2008, Peec &amp; str1fe.<br />
+			</div>
+		</div>
+		<div class="jqmWindow" id="playlists-window">
+			<div class="jqmHeader" id="playlists-window-header">
+				<span class="left">Playlists</span>
+				<a id="playlists-window-close" class="right" href="#">
+					<img src="images/cross.png" />
+				</a>
+				<br class="clear" />
+			</div>
+			<div class="jqmContent">
+				<ul id="playlist-list">
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
