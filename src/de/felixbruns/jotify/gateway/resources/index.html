@@ -57,7 +57,8 @@
 				</div>
 				<br class="clear" />
 			</div>
-			<div id="content">
+
+			<div class="content">
 			
 				<div id="info-label" class="label left">
 					Please wait... <img src="images/load.gif" />
@@ -69,9 +70,20 @@
 					<input id="play-on-server-checkbox" type="checkbox" name="play-on-server-checkbox" style="vertical-align: middle;" />
 					<label for="play-on-server-checkbox">Play on server</label>
 				</span>
-				<a id="playlists-window-show" class="right label" href="#">
-					Playlists
-				</a>
+				<span id="toplist-container" class="right label" href="#" style="margin-left: 25px;">
+					<select name="toplist-country" id="toplist-country">
+						<option value="ALL" checked="checked">All countries</option>
+						<option value="NO">Norway</option>
+						<option value="SE">Sweden</option>
+						<option value="FI">Finland</option>
+						<option value="FR">France</option>
+						<option value="NL">Netherlands</option>
+						<option value="ES">Spain</option>
+						<option value="GB">United Kingdom</option>
+					</select>
+					<input id="toplist-btn" type="submit" value="Show Toplist" name="playlist-show" class="uibutton" />
+				</span>
+
 				<br class="clear" />
 				<br />
 				<div id="login-panel">
@@ -82,7 +94,7 @@
 				<div id="main-panel">
 					<div id="search-panel">
 						<input type="text" id="query" />
-						<input type="submit" id="search" value="Search" />
+						<input type="submit" id="search" value="Search" class="uibuttonuibutton" />
 					</div>
 					<br />
 					<table id="search-table" cellpadding="2" cellspacing="2">
@@ -125,18 +137,6 @@
 				Copyright &copy 2008, Peec &amp; str1fe.<br />
 			</div>
 		</div>
-		<div class="jqmWindow" id="playlists-window">
-			<div class="jqmHeader" id="playlists-window-header">
-				<span class="left">Playlists</span>
-				<a id="playlists-window-close" class="right" href="#">
-					<img src="images/cross.png" />
-				</a>
-				<br class="clear" />
-			</div>
-			<div class="jqmContent">
-				<ul id="playlist-list">
-				</ul>
-			</div>
-		</div>
+
 	</body>
 </html>
