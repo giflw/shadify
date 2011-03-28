@@ -251,6 +251,7 @@
 					
 					/*Toplist handler*/
 					$('#toplist-btn').live('click', function(event){
+						info("Getting toplist results... <img src=\"images/load.gif\" />");
 						var target = $(event.target);
 						
 						var toplistregion = $("#toplist-country").val();
