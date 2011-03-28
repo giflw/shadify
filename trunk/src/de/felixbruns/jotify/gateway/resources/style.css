@@ -21,6 +21,15 @@
 	clear : both;
 }
 
+#error-label, #success-label, #play-on-server, #playlists-window-show, #login-panel
+	,#main-panel, #browse-album, #info-panel, #toplist-container{
+	display: none;
+}
+
+select{
+	font-size: 18px;
+}
+
 /* HTML and body elements. */
 
 html {
@@ -168,12 +177,13 @@ input {
 	width   : 100%;
 }
 
-#content {
+.content {
 	padding          : 15px;
 	background-color : #FFFFFF;
 	border           : 2px solid #BBBBBB;
 	width            : 100%;
 	text-align       : left;
+	min-height: 50px;
 }
 
 #footer {
@@ -198,10 +208,6 @@ input {
 }
 
 
-#error-label, #success-label, #play-on-server, #playlists-window-show, #login-panel
-	,#main-panel, #browse-album, #info-panel{
-	display: none;
-}
 
 
 #success-label {

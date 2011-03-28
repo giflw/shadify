@@ -158,7 +158,14 @@
 					ctx.fillText(remaining, canvas.width - ctx.measureText(remaining).width - 5, canvas.height / 2);
 				};
 				
-				/* DOM ready. */
+				/*
+				 * 
+				 * DOM READY . 
+				 * JQUERY document.ready!
+				 * 
+				 * JQUERY START DOM.
+				 * 
+				 */
 				$(document).ready(function(){
 					/* Create Jotify object. */
 					jotify = new Jotify({});
@@ -177,6 +184,7 @@
 								$('#main-panel').show();
 								$('#play-on-server').show();
 								$('#info-panel').show();
+								$('#toplist-container').show();
 							},
 							error: function(data){
 								info('Please login using a premium account!');
@@ -232,7 +240,7 @@
 								$('#main-panel').show();
 								$('#play-on-server').show();
 								$('#info-panel').show();
-								
+								$('#toplist-container').show();
 								
 							},
 							error: error
@@ -240,6 +248,51 @@
 						
 						event.preventDefault();
 					});
+					
+					/*Toplist handler*/
+					$('#toplist-btn').live('click', function(event){
+						var target = $(event.target);
+						
+						var toplistregion = $("#toplist-country").val();
+
+						jotify.toplist({type: "track", region: toplistregion}, session, {
+							success: function(data){
+								$('#browse-album').hide();
+								$('#search-table').show();
+								/* Clear track table. */
+								$('#search-table > tbody').empty();
+								
+								/* Get tracks from search result. */
+								currentTracks = data.toplist.tracks;
+								
+								if(typeof(currentTracks.track) == 'undefined'){
+									currentTracks = [];
+								}
+								else if(currentTracks.track instanceof Array){
+									currentTracks = currentTracks.track;
+								}
+								else{
+									currentTracks = [currentTracks.track];
+								}
+								
+								
+								
+								/* Loop over tracks and add them to the table. */
+								for(var i in currentTracks){
+									appendTrack(i, currentTracks[i]);
+								}
+								
+								/* Trigger update event (tablesorter). */
+								$('#search-table').trigger('update');
+								
+								info('Toplist fetched.');
+							},
+							error: error
+						});
+						
+						event.preventDefault();
+					});
+					
 					
 					/* Search handler. */
 					$('#search, #did-you-mean').live('click', function(event){
@@ -452,8 +505,14 @@
 					});
 					
 					
-					$('#playlists-window').jqm({overlay: 30, modal: true});
-					$('#playlists-window').jqmAddTrigger('#playlists-window-show');
-					$('#playlists-window').jqmAddClose('#playlists-window-close');
-					$('#playlists-window').jqDrag('#playlists-window-header');
+					
+					
+					
+					// Submit button nice.
+					$("input:submit").button();
+					
 				});
+				
+				
+				
+			

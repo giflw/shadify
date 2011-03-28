@@ -17,15 +17,22 @@ public class ToplistHandler extends GatewayHandler {
 			String region   = params.get("region");
 			String username = params.get("username");
 			
+			// Check for empty, in that case show all regions toplist.
+			if (region.equals("ALL"))region = null;
+			
 			/* Check if session is valid. */
 			if(GatewayApplication.sessions.containsKey(session)){
 				GatewayConnection jotify = GatewayApplication.sessions.get(session);
+			
 				
 				/* Get toplist. */
 				try{
-					return jotify.toplist(type, region, username);
+					System.out.println("Toplist handler initialized. To region " + region);
+					String str =  jotify.toplist(type, region, username);
+					return str;
 				}
 				catch(TimeoutException e){
+					e.printStackTrace();
 					return "<error>" + e.getMessage() + "</error>";
 				}
 			}
